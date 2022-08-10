@@ -18,6 +18,7 @@ Based on create-t3-app https://github.com/t3-oss/create-t3-app/
 - Tailwind CSS https://tailwindcss.com/
 - tRPC https://trpc.io/
 - Zod https://zod.dev/
+- superjson https://github.com/blitz-js/superjson
 
 # License
  AGPLv3 - See the LICENSE file
