@@ -15,6 +15,7 @@ Based on create-t3-app https://github.com/t3-oss/create-t3-app/
 - Prisma https://www.prisma.io/
 - Next.js https://nextjs.org/
 - React https://reactjs.org/
+- Tailwind CSS https://tailwindcss.com/
 - tRPC https://trpc.io/
 - Zod https://zod.dev/
 
