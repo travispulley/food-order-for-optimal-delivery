@@ -8,6 +8,7 @@ const Admin: NextPage = () => {
 
   const food = trpc.useQuery(["food.getAll"])
   const createFood = trpc.useMutation(["food.create"])
+  const delFood = trpc.useMutation(["food.delete"])
 
   const addFood = (e: React.FormEvent) => {
     e.preventDefault()
@@ -19,6 +20,10 @@ const Admin: NextPage = () => {
         foodRef.current.value = ""
       food.refetch()
    } })
+  }
+
+  const delFoodbyId = (id: number) => {
+    delFood.mutate({ id }, { onSuccess: () => food.refetch() })
   }
 
   return (
@@ -34,7 +39,7 @@ const Admin: NextPage = () => {
         </h1>
         <ul>
           { food.data && food.data.map(({ id, name }) => (
-            <li key={id}>{name}</li>
+            <li key={id}>{name} <button onClick={() => delFoodbyId(id) }>❌ Delete</button></li>
           ))}
         </ul>
         <form>

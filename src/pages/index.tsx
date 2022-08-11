@@ -1,8 +1,10 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-// import { trpc } from "../utils/trpc";
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import { trpc } from '../utils/trpc'
 
 const Home: NextPage = () => {
+  const food = trpc.useQuery(["food.getAll"])
+
   return (
     <>
       <Head>
@@ -14,9 +16,14 @@ const Home: NextPage = () => {
         <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
           Order Food
         </h1>
+        <ul>
+          { food.data && food.data.map(({ id, name }) => (
+            <li key={id}>{name}</li>
+          ))}
+        </ul>
       </main>
     </>
   );
 };
 
-export default Home;
+export default Home
